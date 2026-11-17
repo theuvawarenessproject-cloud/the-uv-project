@@ -80,9 +80,10 @@ footer{background:#050505;color:#d8cdb8;padding:32px 7vw;display:flex;justify-co
 </div></section>
 <section class="section join-section" id="join"><div class="head" style="margin-left:auto;margin-right:auto"><div class="eyebrow">Your voice matters</div><h2>Join the movement.</h2><p class="lead">Want to support skin cancer awareness in your school or community? Fill out the form below and tell us how you would like to get involved.</p></div>
 <div class="join-wrap">
-<form class="join-form" action="https://formsubmit.co/ajax/theuvawarenessproject@gmail.com" method="POST">
+<form class="join-form" action="https://formsubmit.co/theuvawarenessproject@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="New Join the Movement submission - The UV Project">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://theuvawarenessproject-cloud.github.io/the-uv-project/#home">
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <div class="field"><label for="first">First name *</label><input id="first" name="First name" type="text" autocomplete="given-name" required></div>
 <div class="field"><label for="last">Last name *</label><input id="last" name="Last name" type="text" autocomplete="family-name" required></div>
@@ -110,7 +111,6 @@ const joinStatus = document.getElementById('join-form-status');
 const joinSubmit = joinForm.querySelector('button[type="submit"]');
 const projectHome = 'https://theuvawarenessproject-cloud.github.io/the-uv-project/#home';
 
-joinForm.addEventListener('submit', async function (event) {
   event.preventDefault();
 
   if (!joinForm.reportValidity()) return;
@@ -136,7 +136,6 @@ joinForm.addEventListener('submit', async function (event) {
     }
 
     joinStatus.textContent = 'Thank you! Your message was submitted. Taking you back to The UV Project...';
-    window.location.assign(projectHome);
   } catch (error) {
     joinStatus.textContent = 'We could not confirm that your message was sent. Please try again, or email theuvawarenessproject@gmail.com.';
     joinSubmit.disabled = false;
